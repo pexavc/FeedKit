@@ -8,7 +8,7 @@
 import Foundation
 import FeedKit
 
-guard let feedURL = URL(string: "http://images.apple.com/main/rss/hotnews/hotnews.rss") else {
+guard let feedURL = URL(string: "https://hnrss.org/frontpage") else {
     fatalError("invalid url")
 }
 let parser = FeedParser(URL: feedURL)

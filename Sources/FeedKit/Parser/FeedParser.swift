@@ -133,6 +133,7 @@ public class FeedParser {
                     continuation.resume(returning: feed)
                 case .failure(let error):
                     print("FeedKit: \(error.localizedDescription)")
+                    continuation.resume(returning: nil)
                 }
             }
         })
