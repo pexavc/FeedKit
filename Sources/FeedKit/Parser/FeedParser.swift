@@ -122,7 +122,7 @@ public class FeedParser {
         }
     }
     
-    @available(macOS 10.15.0, *)
+    @available(macOS 10.15.0, iOS 13.0, *)
     public func parseAsyncAwait(queue: DispatchQueue = DispatchQueue.global()) async -> Feed?
     {
         return await withCheckedContinuation({ continuation in

@@ -6,7 +6,7 @@ let package = Package(
     name: "FeedKit",
     platforms: [
         .macOS(.v10_13),
-        .iOS(.v12),
+        .iOS(.v13),
         .tvOS(.v11),
         .watchOS(.v4)
     ],
