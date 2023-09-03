@@ -122,6 +122,22 @@ public class FeedParser {
         }
     }
     
+    @available(macOS 10.15.0, *)
+    public func parseAsyncAwait(queue: DispatchQueue = DispatchQueue.global()) async -> Feed?
+    {
+        return await withCheckedContinuation({ continuation in
+            queue.async {
+                let result = self.parse()
+                switch result {
+                case .success(let feed):
+                    continuation.resume(returning: feed)
+                case .failure(let error):
+                    print("FeedKit: \(error.localizedDescription)")
+                }
+            }
+        })
+    }
+    
     /// Stops parsing XML feeds.
     public func abortParsing() {
         guard let xmlFeedParser = parser as? XMLFeedParser else { return }
